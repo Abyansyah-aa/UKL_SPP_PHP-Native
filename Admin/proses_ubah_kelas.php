@@ -9,11 +9,10 @@
         $cek = mysqli_query($conn,"select * from kelas where id_kelas='$id_kelas'" );
         $p=mysqli_fetch_array($cek);
 
-        if ($p['angkatan']==$angkatan && $p['nama_kelas']==$nama_kelas ) {
+        if ($p['nama_kelas']==$nama_kelas ) {
             echo "<script>window.alert('Nama kelas yang anda yang anda masukan sudah ada')
         window.location='kelas.php'</script>";
-        } elseif($p['angkatan']!=$angkatan && $p['nama_kelas']==$nama_kelas ){
-        
+        } else{
         if(empty($nama_kelas)){
             echo "<script>alert('nama kelas tidak boleh kosong');location.href='tampil_kelas.php';</script>";
         } else {
@@ -26,5 +25,3 @@
         }
     }
     }
-    
-?>
